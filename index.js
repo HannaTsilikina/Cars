@@ -2,8 +2,13 @@ let modelContainer = document.querySelector('.model-container')
 let button = document.querySelector('.count');
 let form = document.forms.form;
 let textResult = document.querySelector('.text-result');
-let finalResult = document.querySelector('.result')
-
+let finalResult = document.querySelector('.result');
+let markCar = document.querySelector('#mark');
+let modelRenault = document.querySelector('#mark-Renault');
+let modelOpel = document.querySelector('#mark-Opel');
+let modelMazda = document.querySelector('#mark-Mazda');
+let modelJaguar = document.querySelector('#mark-Jaguar');
+let buttonReset = document.querySelector('.reset')
 let costs = [
     {
         mark: {
@@ -72,18 +77,22 @@ let costs = [
     }
 ]
 function showModel() {
+    let modelContainer = document.querySelector('.model-container');
     let mark = document.forms.form.elements.carMark.value;
     if (mark == 'Renault') {
         let modelRenault = document.forms.form.elements.carRenault;
         modelRenault.classList.remove('hover');
+        modelContainer.classList.remove('hover')
     }
     if (mark !== 'Renault') {
         let modelRenault = document.forms.form.elements.carRenault;
         modelRenault.classList.add('hover');
+
     }
     if (mark == 'Opel') {
         let modelOpel = document.forms.form.elements.carOpel;
         modelOpel.classList.remove('hover');
+        modelContainer.classList.remove('hover')
 
     }
     if (mark !== 'Opel') {
@@ -94,6 +103,7 @@ function showModel() {
     if (mark == 'Mazda') {
         let modelMazda = document.forms.form.elements.carMazda;
         modelMazda.classList.remove('hover');
+        modelContainer.classList.remove('hover')
 
     }
     if (mark !== 'Mazda') {
@@ -104,6 +114,7 @@ function showModel() {
     if (mark == 'Jaguar') {
         let modelJaguar = document.forms.form.elements.carJaguar;
         modelJaguar.classList.remove('hover');
+        modelContainer.classList.remove('hover')
 
     }
     if (mark !== 'Jaguar') {
@@ -112,7 +123,6 @@ function showModel() {
 
     }
 }
-
 function quantOwners() {
     let type = document.querySelector('#quality-old');
     let qual = document.querySelector('.quant-container')
@@ -129,25 +139,57 @@ function showChecked(array) {
         }
     }
 }
+function addError(input) {
+    if (input.value == 'Mарка автомобиля') {
+        alert('Выберите марку автомобиля');
+        addResult('0')
+    }
+    else {
+        let modelValue = 'Модель автомобиля'
+        if (!modelRenault.classList.contains('hover')) {
+            modelValue = modelRenault.value
+        };
+        if (!modelOpel.classList.contains('hover')) {
+            modelValue = modelOpel.value
+        };
+        if (!modelMazda.classList.contains('hover')) {
+            modelValue = modelMazda.value
+        };
+        if (!modelJaguar.classList.contains('hover')) {
+            modelValue = modelJaguar.value
+        };
+        console.log(modelValue)
+        if (modelValue === 'Модель автомобиля') {
+            alert('Выберите модель  автомобиля');
+            addResult('0')
+        }
+    }
+
+
+}
+function addResult(result) {
+    finalResult.classList.remove('hover');
+    textResult.textContent = result
+}
 function calc() {
+
     let markValue = document.querySelector('#mark').value;
-    let modelValueRenault = document.querySelector('#mark-Renault').value;
-    let modelValueOpel = document.querySelector('#mark-Opel').value;
-    let modelValueMazda = document.querySelector('#mark-Mazda').value;
-    let modelValueJaguar = document.querySelector('#mark-Jaguar').value;
-    let modelValue = 0;
-    if (!modelValueRenault == 0) { 
-        modelValue = modelValueRenault 
+    let modelValue = 'Модель автомобиля';
+    if (!modelRenault.classList.contains('hover')) {
+        modelValue = modelRenault.value
     };
-    if (!modelValueOpel == 0) { 
-        modelValue = modelValueOpel 
+    if (!modelOpel.classList.contains('hover')) {
+        modelValue = modelOpel.value
     };
-    if (!modelValueMazda == 0) { 
-        modelValue = modelValueMazda 
+    if (!modelMazda.classList.contains('hover')) {
+        modelValue = modelMazda.value
     };
-    if (!modelValueJaguar == 0) { 
-        modelValue = modelValueJaguar 
+    if (!modelJaguar.classList.contains('hover')) {
+        modelValue = modelJaguar.value
     };
+    console.log(modelValue)
+
+
     let fuelInputs = document.forms.form.elements.typeFuel;
     let fuelValue = showChecked(fuelInputs);
     let volumeValue = document.querySelector('#volume').value;
@@ -158,42 +200,40 @@ function calc() {
     let payInputs = document.forms.form.elements.typePay;
     let payValue = showChecked(payInputs);
     let sum = []
-    if (!costs[0].mark[markValue] == 0) 
-    sum.push(costs[0].mark[markValue]);
-    if (!costs[1].model[modelValue] == 0) 
-    sum.push(costs[1].model[modelValue]);
-    if (!costs[2].fuel[fuelValue] == 0) 
-    sum.push(costs[2].fuel[fuelValue]);
-    if (!costs[3].volume[volumeValue] == 0) 
-    sum.push(costs[3].volume[volumeValue]);
-    if (!costs[4].quality[qualityValue] == 0) 
-    sum.push(costs[4].quality[qualityValue]);
-    if (!costs[5].quantity[quantityValue] == 0) 
-    sum.push(costs[5].quantity[quantityValue]);
-    if (!costs[6].pay[payValue] == 0) 
-    sum.push(costs[6].pay[payValue]);
+    if (!costs[0].mark[markValue] == 0)
+        sum.push(costs[0].mark[markValue]);
+    if (!costs[1].model[modelValue] == 0)
+        sum.push(costs[1].model[modelValue]);
+    if (!costs[2].fuel[fuelValue] == 0)
+        sum.push(costs[2].fuel[fuelValue]);
+    if (!costs[3].volume[volumeValue] == 0)
+        sum.push(costs[3].volume[volumeValue]);
+    if (!costs[4].quality[qualityValue] == 0)
+        sum.push(costs[4].quality[qualityValue]);
+    if (!costs[5].quantity[quantityValue] == 0)
+        sum.push(costs[5].quantity[quantityValue]);
+    if (!costs[6].pay[payValue] == 0)
+        sum.push(costs[6].pay[payValue]);
+    console.log(sum)
     let result = 0;
     for (let i = 0; i < sum.length; i++) {
         result = result + sum[i];
     }
     addResult(result)
-
-function addResult(result) {
-    finalResult.classList.remove('hover');
-       textResult.textContent = result
-    }
-
 }
 
-form.onsubmit =  function calculatePrice() {
-    event.preventDefault()
+form.onsubmit = function calculatePrice() {
+    event.preventDefault();
     calc();
-
+    addError(markCar);
 }
 form.onchange = function changePrice() {
-   if (textResult.textContent !== '') {
-     calc() }
-
+    if (textResult.textContent !== '') {
+        calc()
+    }
 }
 
-
+buttonReset.onclick = function resetAll() {
+    form.reset()
+    finalResult.classList.add('hover');
+}

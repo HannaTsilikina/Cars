@@ -49,6 +49,14 @@ font-weight: 700;
 border: none;
 border-radius: 10px;
 }
+.reset {
+    padding: 8px 14px;
+  background: none;
+color: rgb(119, 119, 119);
+font-weight: 700;
+border: 1px solid;
+border-radius: 10px;
+}
 .hover {
     display: none;
 }
