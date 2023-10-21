@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Калькулятор стоимости</h1>
+    <div class="container">
+        <form action="#" name="form" onchange="calc()" >
+        <div class="mark-container">
+            <span class="description"> Выберите марку автомобиля</span>
+            <select name="carMark" onchange="showModel()" id="mark">
+                <option selected disabled>Mарка автомобиля</option>
+                <option value="Renault">Renault</option>
+                <option value="Opel">Opel</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Jaguar">Jaguar</option>
+            </select>
+        </div>
+        <div class="model-container ">
+            <span class="description"> Выберите модель автомобиля</span>
+            <select class="car-model " name="carRenault" id="mark-Renault">
+                <option selected disabled>Модель автомобиля</option>
+                <option value="Clio">Clio</option>
+                <option value="Espace">Espace</option>
+                <option value="Megane">Megane</option>
+                <option value="Twingo">Twingo</option>
+            </select>
+            <select class="car-model hover"  name="carOpel" id="mark-Opel">
+                <option selected disabled></option>
+                <option value="Crossland">Crossland</option>
+                <option value="Grandland">Grandland</option>
+                <option value="Corsa">Corsa</option>
+                <option value="Astra">Astra</option>
+            </select>
+
+            <select class="car-model hover"  name="carMazda" id="mark-Mazda">
+                <option selected disabled></option>
+                <option value="CX-4">CX-4</option>
+                <option value="MX-30">MX-30</option>
+                <option value="CX-7">CX-7</option>
+                <option value="CX-9">CX-9</option>
+            </select>
+            <select class="car-model hover"  name="carJaguar" id="mark-Jaguar">
+                <option selected disabled></option>
+                <option value="E-Pace">E-Pace</option>
+                <option value="F-Pace">F-Pace</option>
+                <option value="I-Pace">I-Pace</option>
+                <option value="XE">XE</option>
+            </select>
+        </div>
+        <div class="fuel-container">
+            <span class="description"> Выберите тип топлива</span>
+           <div class="fuel-item">
+            <input type="radio" checked value="Бензин" name="typeFuel" id="fuel-benz"> <label for="fuel-benz">Бензин</label>
+            <input type="radio"   value="Дизель" name="typeFuel" id="fuel-diz"> <label for="fuel-diz">Дизель </label>
+            <input type="radio"   value="Газ" name="typeFuel" id="fuel-gaz"> <label for="fuel-gaz">Газ </label>
+            <input type="radio"   value="Электричество" name="typeFuel" id="fuel-electricity"> <label for="fuel-electricity">Электричество
+            </label>
+        </div> 
+        </div>
+        <div class="volume-container">
+            <span class="description"> Выберите объем двигателя </span>
+            <div class="volume-item">
+            <input type="number"  class="volume" name="type-volume" placeholder="1.1" max="3.6" min="1.1" step="0.5" id="volume"> <label for="volume"> Объем
+                двигателя,литров</label>
+            </div>
+        </div>
+        <div class="quality-container">
+            <span class="description"> Выберите тип машины</span>
+            <div class="type-item">
+            <input type="radio"   value="new" onchange="quantOwners()" checked name="typeQuality" id="quality-new"> <label for="quality-new">Новая</label>
+            <input type="radio" value="old" onchange="quantOwners()" name="typeQuality" id="quality-old"> <label for="quality-old">Б/У </label>
+        </div>
+        </div>
+        <div class="quant-container  hover">
+            <span class="description"> Выберите количество владельцев</span>
+            <div class="qual-item">
+            <input type="radio" value="2" name="typeQuantity" id="quantity-few"> <label for="quality-new">1-2 человека </label>
+            <input type="radio"  value="3" name="typeQuantity" id="quality-many"> <label for="quality-old">Более 3-х
+                человек</label>
+            </div>
+        </div>
+        <div class="pay-container">
+            <span class="description"> Выберите способ оплаты</span>
+            <div class="quant-item">
+            <input type="radio" value="Наличные" checked name="typePay" id="pay-card"> <label for="pay-card">Банковской картой </label>
+            <input type="radio" value="Карта" name="typePay" id="pay-money"> <label for="pay-money">Наличными</label>
+            <input type="radio" value="Счет"name="typePay" id="pay-bill"> <label for="pay-bill">Счет на юридическое лицо</label>
+        </div>
+        </div>
+        <button class="count" type="submit">Рассчитать</button>
+    <div class="result">
+    </form>
+        <span class=" text-result">Стоимость автомобиля с такими параметрами: </span>
+    <div  class=" hover textResult">
+        <span>Итоговая стоимость : </span>
+        <span class="resultSubmit"></span>
+    </div>
+    </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+body {
+    margin: 20px 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+h1 {
+    font-size: 36px;
+    color: black;
+   
+}
+.container  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    border: 2px solid rgb(79, 4, 145);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(217, 210, 220);
+    margin: 0 auto;
+    width: 60vw;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.mark-container, .model-container, .fuel-container, 
+.volume-container, .quality-container, .quant-container,
+.pay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.fuel-item, .volume-item, .type-item, .qual-item, .quant-item {
+display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 5px;
+}
+.count {
+    padding: 10px 15px;
+    background-color: rgb(61, 13, 106);
+color: white;
+font-weight: 700;
+border: none;
+border-radius: 10px;
+}
+.hover {
+    display: none;
+}
+input, select {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
