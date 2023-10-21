@@ -1,5 +1,8 @@
 let modelContainer = document.querySelector('.model-container')
 let button = document.querySelector('.count');
+let form = document.forms.form;
+let textResult = document.querySelector('.text-result');
+let finalResult = document.querySelector('.result')
 
 let costs = [
     {
@@ -174,24 +177,23 @@ function calc() {
         result = result + sum[i];
     }
     addResult(result)
-}
+
 function addResult(result) {
-    let textResult = document.querySelector('.text-result');
-    textResult.textContent = `Стоимость автомобиля с такими параметрами: ${result} $`
-    
-}
-function addText () {
-
-    let resultSubmit = document.querySelector('.resultSubmit');
-   resultSubmit.classList.remove('hover');
-   
-    resultSubmit.textContent = document.querySelector('.text-result').text ;
-}
-
-button.addEventListener('submit', function calculatePrice() {
-    event.preventDefault();
-    calc()
-    addText()
+    finalResult.classList.remove('hover');
+       textResult.textContent = result
+    }
 
 }
-);
+
+form.onsubmit =  function calculatePrice() {
+    event.preventDefault()
+    calc();
+
+}
+form.onchange = function changePrice() {
+   if (textResult.textContent !== '') {
+     calc() }
+
+}
+
+
